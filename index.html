@@ -269,7 +269,7 @@
     .exp-desc { font-size: 14px; color: var(--charcoal-2); line-height: 1.65; }
     .exp-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
 
-    /* ── Contact ──────────────────────────────────────────────── */
+    /* ── Contact ──────��───────────────────────────────────────── */
     #contact {
       background: var(--charcoal); border-radius: var(--radius-lg);
       margin: 0 32px 96px; padding: 72px 64px;
@@ -363,7 +363,7 @@
             <div class="hero-stat-label">Companies</div>
           </div>
           <div class="hero-stat">
-            <div class="hero-stat-value">2</div>
+            <div class="hero-stat-value" id="paper-count">6</div>
             <div class="hero-stat-label">Papers</div>
           </div>
         </div>
@@ -736,6 +736,13 @@
       { threshold: 0.1 }
     );
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+  <script>
+    // 自动统计 publications 数量
+    const count = document.querySelectorAll('#publications .exp-item').length;
+    const el = document.getElementById('paper-count');
+    if (el && count > 0) el.textContent = count;
   </script>
 
 </body>
